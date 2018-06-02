@@ -28,6 +28,15 @@ class PatientController extends Controller
     }
 
     public function store(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'mother_last_name' => 'required',
+            'n_document' => 'required|unique:patients,n_document',
+            'address' => 'required',
+        ]);
+
         $patient = new Patient;
         $patient->name = $request->name;
         $patient->last_name = $request->last_name;
@@ -49,6 +58,15 @@ class PatientController extends Controller
     }
 
     public function update(Request $request, $id){
+
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'mother_last_name' => 'required',
+            'n_document' => 'required',
+            'address' => 'required',
+        ]);
+
     	$patient = Patient::find($id);
     	$patient->name = $request->name;
         $patient->last_name = $request->last_name;

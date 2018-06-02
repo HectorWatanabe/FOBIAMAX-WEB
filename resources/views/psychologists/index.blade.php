@@ -20,19 +20,19 @@
 					<table class="table table-hover">
 					  <thead>
 					    <tr>
-					      <th scope="col">ID</th>
-					      <th scope="col">Nombre</th>
-					      <th scope="col">Apellido</th>
-					      <th scope="col">Apellido Materno</th>
-					      <th scope="col">Email</th>
-					      <th scope="col">Estado</th>
-					      <th scope="col">Opciones</th>
+					      <th>Código</th>
+					      <th>Nombre</th>
+					      <th>Apellido</th>
+					      <th>Apellido Materno</th>
+					      <th>Email</th>
+					      <th>Estado</th>
+					      <th>Opciones</th>
 					    </tr>
 					  </thead>
 					  <tbody>
 					  	@foreach($psychologists as $psychologist)
 					    <tr>
-					      <th scope="row">{{ $psychologist->id }}</th>
+					      <td>{{ $psychologist->code }}</td>
 					      <td>{{ $psychologist->user->name }}</td>
 					      <td>{{ $psychologist->user->last_name }}</td>
 					      <td>{{ $psychologist->user->mother_last_name }}</td>

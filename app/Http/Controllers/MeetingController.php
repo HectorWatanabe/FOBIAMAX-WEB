@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Meeting;
 use App\Psychologist;
 
@@ -25,11 +26,30 @@ class MeetingController extends Controller
     }
 
     public function create(){
+        $patients = DB::select('select id, name, last_name, mother_last_name from patients');
+
+        foreach ($patients as $patient) {
+            $new_patients[$patient->id] = $patient->id.' - '.$patient->name.' '.$patient->last_name.' '.$patient->mother_last_name;
+        }
+        
         $meeting = new Meeting;
-        return view('meetings.create', compact('meeting'));
+        return view('meetings.create', compact('meeting','new_patients'));
     }
 
     public function store(Request $request){
+
+        $request->validate([
+            'date' => 'required',
+            'hour' => 'required',
+            'clinical_criteria' => 'required',
+            'usas' => 'required',
+            'diagnosis' => 'required',
+            'sweating_measure' => 'required',
+            'pulse' => 'required',
+            'task' => 'required',
+            'description' => 'required',
+        ]);
+
         $meeting = new Meeting;
         $my_psychologist = Psychologist::where( 'user_id', Auth::user()->id )->first();
         $meeting->psychologist_id = $my_psychologist->id;
@@ -54,6 +74,20 @@ class MeetingController extends Controller
     }
 
     public function update(Request $request, $id){
+
+        $request->validate([
+            'patient_id' => 'required|exists:patients,id',
+            'date' => 'required',
+            'hour' => 'required',
+            'clinical_criteria' => 'required',
+            'usas' => 'required',
+            'diagnosis' => 'required',
+            'sweating_measure' => 'required',
+            'pulse' => 'required',
+            'task' => 'required',
+            'description' => 'required',
+        ]);
+
     	$meeting = Meeting::find($id);
     	$meeting->date = $request->date;
         $meeting->hour = $request->hour;

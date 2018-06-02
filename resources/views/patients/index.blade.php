@@ -18,7 +18,7 @@
 					<table class="table table-hover">
 					  <thead>
 					    <tr>
-					      <th>ID</th>
+					      <th>Código</th>
 					      <th>Nombre</th>
 					      <th>Apellido</th>
 					      <th>Apellido Materno</th>

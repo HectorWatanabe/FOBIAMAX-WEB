@@ -22,16 +22,13 @@
 					@endif
 					{!! Form::open(['route' => ['meeting-update', $meeting->id], 'method' => 'PATCH', 'class' => 'form']) !!}
 						<div class="form-group">
-							{!! Form::label('meeting_code', 'Código Cita') !!}
-							{!! Form::label('meeting_code', $meeting->id, ['class' => 'form-control']) !!}
+							{!! Form::label('meeting_code', 'Código Cita: '.$meeting->id) !!}
 						</div>
 						<div class="form-group">
-							{!! Form::label('patient_code', 'Código Paciente') !!}
-							{!! Form::label('patient_id', $meeting->patient->id, ['class' => 'form-control']) !!}
+							{!! Form::label('patient_code', 'Código Paciente: '.$meeting->patient->id) !!}
 						</div>
 						<div class="form-group">
-							{!! Form::label('patient_full_name', 'Paciente') !!}
-							{!! Form::label('patient_id', $meeting->patient->name.' '.$meeting->patient->last_name.' '.$meeting->patient->mother_last_name, ['class' => 'form-control']) !!}
+							{!! Form::label('patient_full_name', 'Paciente: '.$meeting->patient->name.' '.$meeting->patient->last_name.' '.$meeting->patient->mother_last_name) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('date', 'Fecha') !!}
@@ -47,7 +44,7 @@
 						</div>
 						<div class="form-group">
 							{!! Form::label('usas', 'USAS') !!}
-							{!! Form::number('usas', $meeting->usas , ['class' => 'form-control']) !!}
+							{!! Form::number('usas', $meeting->usas , ['class' => 'form-control', 'step' => '.01']) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('diagnosis', 'Diagnóstico') !!}
@@ -55,11 +52,11 @@
 						</div>
 						<div class="form-group">
 							{!! Form::label('sweating_measure', 'Nivel de Sudor') !!}
-							{!! Form::number('sweating_measure', $meeting->sweating_measure, ['class' => 'form-control']) !!}
+							{!! Form::number('sweating_measure', $meeting->sweating_measure, ['class' => 'form-control', 'step' => '.01']) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('pulse', 'Nivel de Pulso') !!}
-							{!! Form::number('pulse', $meeting->pulse, ['class' => 'form-control']) !!}
+							{!! Form::number('pulse', $meeting->pulse, ['class' => 'form-control', 'step' => '.01']) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('task', 'Tareas') !!}

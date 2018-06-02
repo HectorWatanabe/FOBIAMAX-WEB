@@ -38,12 +38,13 @@
 							{!! Form::text('email', '', ['class' => 'form-control']) !!}
 						</div>
 						<div class="form-group">
-							{!! Form::label('code', 'Código') !!}
-							{!! Form::text('code', '' , ['class' => 'form-control']) !!}
-						</div>
-						<div class="form-group">
 							{!! Form::label('specialty', 'Especialidad') !!}
-							{!! Form::text('specialty', '' , ['class' => 'form-control']) !!}
+							{!! Form::select(
+									'specialty', 
+									['Psicología' => 'Psicología', 'Psiquiatría' => 'Psiquiatría'],
+									'Psicología',
+									['class' => 'form-control']
+							) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('description', 'Descripción') !!}

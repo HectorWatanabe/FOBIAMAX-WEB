@@ -23,7 +23,7 @@
 					{!! Form::open(['route' => 'meeting-store', 'method' => 'POST', 'class' => 'form']) !!}
 						<div class="form-group">
 							{!! Form::label('patient_id', 'Código Paciente') !!}
-							{!! Form::text('patient_id', '', ['class' => 'form-control']) !!}
+							{!! Form::select('patient_id', $new_patients, null, ['class' => 'form-control']) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('date', 'Fecha') !!}
@@ -39,7 +39,7 @@
 						</div>
 						<div class="form-group">
 							{!! Form::label('usas', 'USAS') !!}
-							{!! Form::number('usas', '' , ['class' => 'form-control']) !!}
+							{!! Form::number('usas', '' , ['class' => 'form-control', 'step' => '.01']) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('diagnosis', 'Diagnóstico') !!}
@@ -47,11 +47,11 @@
 						</div>
 						<div class="form-group">
 							{!! Form::label('sweating_measure', 'Nivel de Sudor') !!}
-							{!! Form::number('sweating_measure', '', ['class' => 'form-control']) !!}
+							{!! Form::number('sweating_measure', '', ['class' => 'form-control', 'step' => '.01']) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('pulse', 'Nivel de Pulso') !!}
-								{!! Form::number('pulse', '', ['class' => 'form-control']) !!}
+							{!! Form::number('pulse', '', ['class' => 'form-control', 'step' => '.01']) !!}
 						</div>
 						<div class="form-group">
 							{!! Form::label('task', 'Tareas') !!}

@@ -29,6 +29,17 @@ class PsychologistController extends Controller
     }
 
     public function store(Request $request){
+        
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'mother_last_name' => 'required',
+            'email' => 'required|unique:users,email',
+            'specialty' => 'required',
+            'description' => 'required',
+            'password' => 'required|min:8',
+        ]);
+
         $user = new User;
         $user->name = $request->name;
         $user->last_name = $request->last_name;
@@ -42,7 +53,7 @@ class PsychologistController extends Controller
         $psychologist = new Psychologist;
         $psychologist->user_id = $user->id;
         $psychologist->specialty = $request->specialty;
-        $psychologist->code = $request->code;
+        $psychologist->code = 'FP'.$user->id;
         $psychologist->description = $request->description;
 
         $psychologist->save();
@@ -56,6 +67,16 @@ class PsychologistController extends Controller
     }
 
     public function update(Request $request, $id){
+
+        $request->validate([
+            'name' => 'required',
+            'last_name' => 'required',
+            'mother_last_name' => 'required',
+            'email' => 'required',
+            'description' => 'required',
+            'password' => 'required|min:8',
+        ]);
+
     	$psychologist = Psychologist::find($id);
     	$psychologist->description = $request->description;
     	$psychologist->save();
