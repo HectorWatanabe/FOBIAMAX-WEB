@@ -4,7 +4,7 @@
 
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Crear Paciente</h1>
+			<h1 class="page-header">Crear Cliente</h1>
 		</div>
 	</div>
 

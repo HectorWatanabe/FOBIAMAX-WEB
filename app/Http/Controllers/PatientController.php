@@ -49,6 +49,8 @@ class PatientController extends Controller
         $patient->degree_of_instruction = $request->degree_of_instruction;
         $patient->save();
 
+        \Session::flash('success', 'Se registró la información del paciente');
+
         return redirect()->route('patients');
     }
 
@@ -78,6 +80,8 @@ class PatientController extends Controller
         $patient->address = $request->address;
         $patient->degree_of_instruction = $request->degree_of_instruction;
     	$patient->save();
+
+        \Session::flash('success', 'Se actualizó la información del paciente');
 
     	return redirect()->route('patients');
     }

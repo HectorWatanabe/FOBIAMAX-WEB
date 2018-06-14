@@ -44,21 +44,16 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <a href="{{ route('perfil') }}">
+                        <i class="fa fa-user fa-fw"></i> Perfil de Usuario
                     </a>
-                    <ul class="dropdown-menu dropdown-messanges">
-                        <li><a href="{{ route('perfil') }}"><i class="fa fa-user fa-fw"></i>Perfil de Usuario</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out fa-fw"></i>Salir</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
                 </li>
-                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a href="{{ route('logout') }}">
+                        <i class="fa fa-sign-out fa-fw"></i> Salir
+                    </a>
+                </li>
             </ul>
             <!-- /.navbar-top-links -->
 

@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">
-				Paciente {{ $patient->name }} {{ $patient->last_name }} {{ $patient->mother_last_name }}
+				Cliente {{ $patient->name }} {{ $patient->last_name }} {{ $patient->mother_last_name }}
 			</h1>
 		</div>
 	</div>

@@ -1,18 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Pacientes</h1>
+			<h1 class="page-header">Clientes</h1>
 		</div>
 	</div>
 
 	<div class="row">
+		@if (Session::has('success'))
+			<div class="alert alert-success">{{ Session::get('success') }}</div>
+		@endif	
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-body table-responsive">
 					<div class="text-right">
-						<a href="{{ route('patient-create') }}" class="btn-success btn">Registrar Paciente</a>
+						<a href="{{ route('patient-create') }}" class="btn-success btn">Registrar Cliente</a>
 					</div>
 					<hr>
 					<table class="table table-hover">

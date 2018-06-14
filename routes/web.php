@@ -83,32 +83,32 @@ Route::get('/psicólogos/{id}', [
 
 //Patient Controller
 
-Route::get('/pacientes', [
+Route::get('/clientes', [
     'as' => 'patients',
     'uses' => 'PatientController@index'
 ]);
 
-Route::get('/pacientes/{id}/edit', [
+Route::get('/clientes/{id}/edit', [
     'as' => 'patient-edit',
     'uses' => 'PatientController@edit'
 ]);
 
-Route::get('/pacientes/create', [
+Route::get('/clientes/create', [
     'as' => 'patient-create',
     'uses' => 'PatientController@create'
 ]);
 
-Route::post('/pacientes', [
+Route::post('/clientes', [
     'as' => 'patient-store',
     'uses' => 'PatientController@store'
 ]);
 
-Route::patch('/pacientes/{id}', [
+Route::patch('/clientes/{id}', [
     'as' => 'patient-update',
     'uses' => 'PatientController@update'
 ]);
 
-Route::get('/pacientes/{id}', [
+Route::get('/clientes/{id}', [
     'as' => 'patient-show',
     'uses' => 'PatientController@show'
 ]);

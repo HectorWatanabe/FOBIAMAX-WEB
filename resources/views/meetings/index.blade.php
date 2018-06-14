@@ -8,6 +8,9 @@
 	</div>
 
 	<div class="row">
+		@if (Session::has('success'))
+			<div class="alert alert-success">{{ Session::get('success') }}</div>
+		@endif	
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-body table-responsive">
@@ -46,6 +49,7 @@
 				      			</a>
 				      			<form action="{{ route('meeting-destroy', $meeting->id )}}" method="post" style="display: inline-block;">
 			      				{!! csrf_field() !!}
+			      				{{ method_field('delete') }}
 			      				<button type="submit" class="btn-danger btn">
 			      					<i class="fa fa-times"></i>
 			      				</button>

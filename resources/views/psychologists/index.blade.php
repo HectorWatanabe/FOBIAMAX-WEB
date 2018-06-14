@@ -8,6 +8,9 @@
 	</div>
 
 	<div class="row">
+		@if (Session::has('success'))
+			<div class="alert alert-success">{{ Session::get('success') }}</div>
+		@endif
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-body table-responsive">

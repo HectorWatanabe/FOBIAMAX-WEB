@@ -42,13 +42,18 @@
 						{!! Form::textarea('description', $psychologist->description, ['class' => 'form-control', 'rows' => 3]) !!}
 					</div>
 					<div class="form-group">
+						{!! Form::label('activa', 'Cambiar Contraseña') !!}
+						{!! Form::checkbox('activa', 'true', false, [ 'onClick' => 'activar()']) !!}
+					</div>
+					<div class="form-group">
 						{!! Form::label('password', 'Contraseña') !!}
-						{!! Form::text('password', '', ['class' => 'form-control']) !!}
+						{!! Form::text('password', '', ['class' => 'form-control', 'disabled' => 'disabled']) !!}
+						<p>Ingresa una contraseña de minimo 6 caracteres.<p>
 					</div>
 					<div class="panel-footer">
 						<div class="row text-center">
-								{!! Form::submit('Enviar', ['class' => 'btn-primary btn']) !!} 
-								<a href="{{ route('psychologists') }}" class="btn-default btn"> Regresar</a>
+						{!! Form::submit('Enviar', ['class' => 'btn-primary btn']) !!} 
+						<a href="{{ route('psychologists') }}" class="btn-default btn">Regresar</a>
 						</div>
 					 </div>
 				{!! Form::close() !!}
@@ -56,4 +61,21 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+
+		var checkBox = document.getElementById("activa");
+		var password = document.getElementById("password");
+
+		checkBox.checked = false;
+		password.value = "";
+
+		function activar()
+		{
+			var checkBox = document.getElementById("activa");
+			if (checkBox.checked == true)
+			    document.getElementById("password").disabled = false;
+			else
+			    document.getElementById("password").disabled = true;	
+		}
+	</script>
 @endsection

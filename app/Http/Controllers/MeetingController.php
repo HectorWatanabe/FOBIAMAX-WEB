@@ -65,6 +65,8 @@ class MeetingController extends Controller
         $meeting->description = $request->description;
         $meeting->save();
 
+        \Session::flash('success', 'Se registró la información de la cita');
+
         return redirect()->route('meetings');
     }
 
@@ -76,7 +78,6 @@ class MeetingController extends Controller
     public function update(Request $request, $id){
 
         $request->validate([
-            'patient_id' => 'required|exists:patients,id',
             'date' => 'required',
             'hour' => 'required',
             'clinical_criteria' => 'required',
@@ -100,12 +101,17 @@ class MeetingController extends Controller
         $meeting->description = $request->description;
     	$meeting->save();
 
+        \Session::flash('success', 'Se actualizó la información de la cita');
+
     	return redirect()->route('meetings');
     }
 
-    public function delete($id){
+    public function destroy($id){
     	$meeting = Meeting::find($id);
     	$meeting->delete();
+
+        \Session::flash('success', 'Se eliminó la cita');
+
     	return redirect()->route('meetings');	
     }
 }

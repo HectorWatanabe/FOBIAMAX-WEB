@@ -7,7 +7,7 @@
             </li>
             @else
             <li>
-                <a href="{{ route('patients')}}"><i class="fa fa-group fa-fw"></i> Pacientes</a>
+                <a href="{{ route('patients')}}"><i class="fa fa-group fa-fw"></i> Clientes</a>
             </li>
             <li>
                 <a href="{{ route('meetings')}}"><i class="fa fa-group fa-fw"></i> Citas</a>
